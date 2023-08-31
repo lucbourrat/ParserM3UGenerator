@@ -3,7 +3,6 @@ ul {
     padding: 0; /* Supprime le padding par défaut de la liste */
 }
 
-#preselectButton {
-    display: block;
+.preselectButtonsContainer {
     margin-top: 10px;
 }

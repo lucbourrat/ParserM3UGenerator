@@ -7,10 +7,14 @@
     <title>M3U Generator</title>
 </head>
 <body>
-    <h1>M3U Parser</h1>
+    <h1>ParserM3UGenerator</h1>
     <input type="file" id="m3uFileInput">
     <button id="parseButton">Parse M3U File</button>
-    <button id="preselectButton">Preselect FR</button>
+    <section class="preselectButtonsContainer">
+        <button class="preselectButton" data-language="FR">Preselect FR</button>
+        <button class="preselectButton" data-language="EN">Preselect EN</button>
+        <button class="preselectButton" data-language="US">Preselect US</button>
+    </section>
     <ul id="groupTitlesList"></ul>
     <button id="generateAndDownloadButton">Generate and Download M3U</button>
     <script src="script.js"></script>

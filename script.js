@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const m3uFileInput = document.getElementById('m3uFileInput');
     const parseButton = document.getElementById('parseButton');
-    const preselectButton = document.getElementById('preselectButton');
+    const preselectButtons = document.getElementsByClassName('preselectButton');
     const groupTitlesList = document.getElementById('groupTitlesList');
     const generateAndDownloadButton = document.getElementById('generateAndDownloadButton');
 
@@ -22,16 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    preselectButton.addEventListener('click', () => {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (const preselectButton of preselectButtons) {
+        preselectButton.addEventListener('click', (event) => {
+            const selectedLanguage = event.target.dataset.language;
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-        checkboxes.forEach(checkbox => {
-            const title = checkbox.value;
-            if (title.startsWith('|FR|') || title.startsWith('FR|') || title.endsWith('|FR') || title.includes('FR FRANCE')) {
-                checkbox.checked = true;
-            }
+            checkboxes.forEach(checkbox => {
+                const title = checkbox.value;
+                if (selectedLanguage === `${selectedLanguage}` && (title.startsWith(`|${selectedLanguage}|`) || title.startsWith(`${selectedLanguage}|`) || title.startsWith(`|${selectedLanguage}`) || title.startsWith(`${selectedLanguage}`))) {
+                    checkbox.checked = true;
+                }
+            });
         });
-    });
+    }
 
     generateAndDownloadButton.addEventListener('click', () => {
         const checkedTitles = [];
