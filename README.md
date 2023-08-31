@@ -19,7 +19,7 @@ ParserM3UGenerator is a web-based tool that enables you to efficiently manage an
 3. **Follow the Steps**:
    - Use the **Browser...** button to upload an M3U playlist file.
    - Click **Parse M3U File** to parse the loaded playlist.
-   - Utilize the **Preselect FR/EN/US** button to conveniently preselect channels.
+   - Utilize the **Preselect FR/EN/US** button to conveniently preselect or unselect channels.
    - Check the checkboxes to select desired channels based on group titles.
    - Hit **Generate and Download M3U** to create and download your updated M3U playlist.
 
@@ -37,4 +37,4 @@ This project is released under the [MIT License](LICENSE).
 
 ---
 
-Developed by [Your Name](https://github.com/lucbourrat)
+Developed by Luc BOURRAT(https://github.com/lucbourrat)
