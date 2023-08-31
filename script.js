@@ -22,17 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const languageStates = {}; // Stocker l'état de chaque langue (pré-sélectionné ou non)
+
     for (const preselectButton of preselectButtons) {
         preselectButton.addEventListener('click', (event) => {
             const selectedLanguage = event.target.dataset.language;
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            // Inverser l'état actuel
+            if (languageStates[selectedLanguage] === undefined) {
+                languageStates[selectedLanguage] = true; // Initialiser à vrai si non défini
+            } else {
+                languageStates[selectedLanguage] = !languageStates[selectedLanguage];
+            }
 
             checkboxes.forEach(checkbox => {
                 const title = checkbox.value;
-                if (selectedLanguage === `${selectedLanguage}` && (title.startsWith(`|${selectedLanguage}|`) || title.startsWith(`${selectedLanguage}|`) || title.startsWith(`|${selectedLanguage}`) || title.startsWith(`${selectedLanguage}`))) {
-                    checkbox.checked = true;
+                if (title.startsWith(`|${selectedLanguage}|`) || title.startsWith(`${selectedLanguage}|`) || title.startsWith(`|${selectedLanguage}`) || title.startsWith(`${selectedLanguage}`)) {
+                    checkbox.checked = languageStates[selectedLanguage]; // Mettre à jour l'état de la case à cocher
                 }
             });
+
+            if (languageStates[selectedLanguage]) {
+                event.target.textContent = `Unselect ${selectedLanguage}`; // Modifier le texte du bouton
+            } else {
+                event.target.textContent = `Preselect ${selectedLanguage}`;
+            }
         });
     }
 
